@@ -1,10 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { App } from 'components/App';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "remixicon/fonts/remixicon.css";
+import "bootstrap/dist/css/bootstrap.css";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter basename="mall">
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
