@@ -14,7 +14,7 @@
   font-size: 0.9rem;
 }
 
-.product__card-bottom .price  {
+.product__card-bottom .price {
   color: var(--primary-color);
   font-size: 1.3rem;
   font-weight: 500;
@@ -25,4 +25,17 @@
   background: var(--primary-color);
   color: #fff;
   border-radius: 50%;
+}
+@media only screen and (max-width: 992px) {
+  .product__info a {
+    font-size: 1.1rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .product__info a {
+    font-size: 1rem;
+  }
+  .product__card-bottom .price {
+    font-size: 1rem;
+  }
 }

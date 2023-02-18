@@ -1,26 +1,43 @@
-import "../Header/header.css";
-import { NavLink } from "react-router-dom";
-import logo from "../../assets/images/eco-logo.png";
-import userIcon from "../../assets/images/user-icon.png";
-import { Container, Row } from "reactstrap";
-import { motion } from "framer-motion";
+import '../Header/header.css';
+import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import logo from '../../assets/images/eco-logo.png';
+import userIcon from '../../assets/images/user-icon.png';
+import { Container, Row } from 'reactstrap';
+import { motion } from 'framer-motion';
 
 const nav__links = [
   {
-    path: "home",
-    display: "Home",
+    path: 'home',
+    display: 'Home',
   },
   {
-    path: "shop",
-    display: "Shop",
+    path: 'shop',
+    display: 'Shop',
   },
   {
-    path: "Cart",
-    display: "cart",
+    path: 'Cart',
+    display: 'cart',
   },
 ];
 
 const Header = () => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    window.addEventListener('scroll', isSticky);
+    return () => {
+      window.removeEventListener('scroll', isSticky);
+    };
+  });
+
+  const isSticky = e => {
+    const header = document.querySelector('.header');
+    const scrollTop = window.scrollY;
+    scrollTop >= 80
+      ? header.classList.add('is-sticky')
+      : header.classList.remove('is-sticky');
+  };
+
   return (
     <header className="header">
       <Container>
@@ -34,13 +51,21 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="navigation">
+            <div
+              className={
+                show ? ['navigation', 'mobile__menu'].join(' ') : ['navigation']
+              }
+            >
               <ul className="menu">
+                <span
+                  className="ri-close-line close__menu"
+                  onClick={() => setShow(!show)}
+                ></span>
                 {nav__links.map((item, index) => (
                   <li className="nav__item" key={index}>
                     <NavLink
                       to={item.path}
-                      className={(nav) => (nav.isActive ? "nav__active" : "")}
+                      className={nav => (nav.isActive ? 'nav__active' : '')}
                     >
                       {item.display}
                     </NavLink>
@@ -82,19 +107,9 @@ const Header = () => {
                   alt="icon"
                 />
               </span>
-            </div>
-            <div className="mobile__menu">
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                >
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
-                </svg>
-              </span>
+              <div className="mobile__menu" onClick={() => setShow(!show)}>
+                <span className="ri-menu-line"></span>
+              </div>
             </div>
           </div>
         </Row>
