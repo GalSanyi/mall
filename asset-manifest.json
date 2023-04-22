@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/mall/static/css/main.9fd45257.css",
-    "main.js": "/mall/static/js/main.06c2b113.js",
+    "main.css": "/mall/static/css/main.eece4da8.css",
+    "main.js": "/mall/static/js/main.04e61321.js",
     "static/media/single-sofa-01.jpg": "/mall/static/media/single-sofa-01.db24b9feed7582c4e98d.jpg",
     "static/media/arm-chair-03.jpg": "/mall/static/media/arm-chair-03.3249f382638c86196acd.jpg",
     "static/media/single-sofa-03.jpg": "/mall/static/media/single-sofa-03.0d976c067034347df78d.jpg",
     "static/media/arm-chair-01.jpg": "/mall/static/media/arm-chair-01.ec17d40c57ba24fe8783.jpg",
     "static/media/single-sofa-02.jpg": "/mall/static/media/single-sofa-02.c27d595e87065035a135.jpg",
     "static/media/arm-chair-02.jpg": "/mall/static/media/arm-chair-02.fb2852acd360d23eeb04.jpg",
+    "static/media/phone-wallpaper.jpg": "/mall/static/media/phone-wallpaper.5501ef6ff6285a465eac.jpg",
     "static/media/remixicon.svg?t=1590207869815": "/mall/static/media/remixicon.9cedd2150922ead84869.svg",
     "static/media/watch-04.jpg": "/mall/static/media/watch-04.1fa3af75c78f4e1fe5ac.jpg",
     "static/media/watch-03.jpg": "/mall/static/media/watch-03.6a5a8f094142a79806e3.jpg",
@@ -32,11 +33,11 @@
     "static/media/wireless-03.png": "/mall/static/media/wireless-03.102199ac2c306820fe70.png",
     "static/media/wireless-01.png": "/mall/static/media/wireless-01.1a76d777727c50ca0294.png",
     "index.html": "/mall/index.html",
-    "main.9fd45257.css.map": "/mall/static/css/main.9fd45257.css.map",
-    "main.06c2b113.js.map": "/mall/static/js/main.06c2b113.js.map"
+    "main.eece4da8.css.map": "/mall/static/css/main.eece4da8.css.map",
+    "main.04e61321.js.map": "/mall/static/js/main.04e61321.js.map"
   },
   "entrypoints": [
-    "static/css/main.9fd45257.css",
-    "static/js/main.06c2b113.js"
+    "static/css/main.eece4da8.css",
+    "static/js/main.04e61321.js"
   ]
 }
