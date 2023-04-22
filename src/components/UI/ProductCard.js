@@ -1,8 +1,24 @@
-import { motion } from "framer-motion";
-import { Col } from "reactstrap";
-import { Link } from "react-router-dom";
-import "../styles/product-card.css";
+import { motion } from 'framer-motion';
+import { Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+import '../styles/product-card.css';
+import { useDispatch } from 'react-redux';
+import { cartActions } from 'redux/slices/cartSlice';
 const ProductCard = ({ item }) => {
+  const dispatch = useDispatch();
+  const addToCart = () => {
+    dispatch(
+      cartActions.addItem({
+        id: item.id,
+        productName: item.productName,
+        price: item.price,
+        image: item.imgUrl,
+      })
+    );
+    toast.success('Product added successfully');
+  };
   return (
     <Col lg="3" md="4" className="mb-2">
       <div className="product__item">
@@ -24,6 +40,7 @@ const ProductCard = ({ item }) => {
           <motion.span
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 1 - 0.9 }}
+            onClick={addToCart}
           >
             <span className="ri-add-line plus"></span>
           </motion.span>
