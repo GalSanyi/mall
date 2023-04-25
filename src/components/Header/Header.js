@@ -1,5 +1,5 @@
 import '../Header/header.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import logo from '../../assets/images/eco-logo.png';
 import userIcon from '../../assets/images/user-icon.png';
@@ -39,7 +39,11 @@ const Header = () => {
       ? header.classList.add('is-sticky')
       : header.classList.remove('is-sticky');
   };
-
+  const navigate = useNavigate();
+  const navigateToCart = () => {
+    // при натискані на корзину  перенаправляе на /cart
+    navigate('/cart');
+  };
   return (
     <header className="header">
       <Container>
@@ -76,7 +80,7 @@ const Header = () => {
               </ul>
             </div>
 
-            <div className="nav__icons">
+            <div className="nav__icons" onClick={navigateToCart}>
               <span className="fav__icon">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

@@ -19,7 +19,7 @@ const cartSlice = createSlice({
         state.cartItems.push({
           id: newItem.id,
           productName: newItem.productName,
-          image: newItem.imgUrl,
+          imgUrl: newItem.imgUrl,
           price: newItem.price,
           quantity: 1,
           totalPrice: newItem.price,
@@ -29,9 +29,22 @@ const cartSlice = createSlice({
         existingItem.totalPrice =
           Number(existingItem.totalPrice) + Number(newItem.price);
       }
-
+// підрахунок усього
       state.totalAmount = state.cartItems.reduce(
-        (total, item) => total + Number(item.price) * Number(item.quantity)
+        (total, item) => total + Number(item.price) * Number(item.quantity),
+        0
+      );
+    },
+    deleteItem: (state, action) => {
+      const id = action.payload;
+      const existingItems = state.cartItems.find(item => item.id === id);
+      if (existingItems) {
+        state.cartItems = state.cartItems.filter(item => item.id !== id);
+        state.totalQuantity = state.totalQuantity - existingItems.quantity;
+      }
+      state.totalAmount = state.cartItems.reduce(
+        (total, item) => total + Number(item.price) * Number(item.quantity),
+        0
       );
     },
   },
