@@ -6,7 +6,7 @@ import { cartActions } from 'redux/slices/cartSlice';
 import { motion } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Checkout from './Checkout';
+// import Checkout from './Checkout';
 const Cart = () => {
   const cartItems = useSelector(state => state.cart.cartItems);
   // підрахунок усього

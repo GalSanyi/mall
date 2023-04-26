@@ -5,7 +5,7 @@ import products from 'assets/data/products';
 // import CommonSection from 'components/UI/CommonSection';
 import '../styles/productDetails.css';
 import { motion } from 'framer-motion';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import ProductList from 'components/UI/ProductList';
 import { useDispatch } from 'react-redux';
 import { cartActions } from 'redux/slices/cartSlice';
