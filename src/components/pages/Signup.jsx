@@ -21,7 +21,7 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  console.log(file);
   const navigator = useNavigate();
 
   const signUp = async e => {
@@ -35,7 +35,7 @@ const Signup = () => {
         password
       );
       const user = userCredential.user;
-      const storageRef = ref(storage, `image/${Date.now() + username}`); //Отже, цей код створює посилання на файл у Firebase Storage з унікальним ідентифікатором, що містить поточну мітку часу та ім'я користувача. Ви можете використати це посилання, наприклад, для завантаження зображення на сервер.
+      const storageRef = ref(storage, `images/${Date.now() + username}`); //Отже, цей код створює посилання на файл у Firebase Storage з унікальним ідентифікатором, що містить поточну мітку часу та ім'я користувача. Ви можете використати це посилання, наприклад, для завантаження зображення на сервер.
       const uploadTask = uploadBytesResumable(storageRef, file);
       uploadTask.on(
         error => {
@@ -57,6 +57,7 @@ const Signup = () => {
           });
         }
       );
+
       setLoading(false);
       toast.success('Account created successfully');
       navigator('/Login');

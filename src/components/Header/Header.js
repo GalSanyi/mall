@@ -1,11 +1,13 @@
 import '../Header/header.css';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import logo from '../../assets/images/eco-logo.png';
 import userIcon from '../../assets/images/user-icon.png';
 import { Container, Row } from 'reactstrap';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
+// import useAuth from '../../custom-hooks/useAuth';
+
 const nav__links = [
   {
     path: 'home',
@@ -23,6 +25,8 @@ const nav__links = [
 
 const Header = () => {
   const totalQuantity = useSelector(state => state.cart.totalQuantity);
+  // const { currentUser } = useAuth();
+  // console.log(currentUser.photoURL);
 
   const [show, setShow] = useState(false);
   useEffect(() => {
@@ -105,14 +109,18 @@ const Header = () => {
                 </svg>
                 <span className="badge">{totalQuantity}</span>
               </span>
-              <span>
+              <div className="profile">
                 <motion.img
                   whileHover={{ scale: 1.6 }}
                   whileTap={{ scale: 2.4 }}
                   src={userIcon}
                   alt="icon"
                 />
-              </span>
+              </div>
+              <div className="profile__action">
+                <Link to="/signup">Signup</Link>
+                <Link to="/login">Login</Link>
+              </div>
               <div className="mobile__menu" onClick={() => setShow(!show)}>
                 <span className="ri-menu-line"></span>
               </div>
